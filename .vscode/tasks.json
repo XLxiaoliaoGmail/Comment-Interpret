@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // build c++ project
+        {
+            "label": "Build and Run with g++",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Clear-Host; $files = Get-ChildItem -Path '${workspaceFolder}/src' -Recurse -Filter '*.cpp' | Select-Object -ExpandProperty FullName; g++ -Wall -Wextra -g3 $files -o '${workspaceFolder}/output/main.exe'; if ($?) { & '${workspaceFolder}/output/main.exe' } else { Write-Host 'Compilation failed, not running main.exe.' }"
+            ],
+            "problemMatcher": [],
+        }
+    ]
+}
